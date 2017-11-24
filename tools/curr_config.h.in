@@ -1,0 +1,6 @@
+#ifndef __CURR_CONFIG_H__
+#define __CURR_CONFIG_H__
+
+#define TOP_PATH        @TOP_PATH_STR@
+
+#endif

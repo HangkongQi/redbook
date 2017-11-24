@@ -44,7 +44,7 @@ LoadShaders(ShaderInfo* shaders)
         entry->shader = shader;
 
         const GLchar* source = ReadShader( entry->filename );
-        printf("Read Source: \n%s\n", source);
+        // printf("Read Source: \n%s\n", source);
         if ( source == NULL ) {
             for ( entry = shaders; entry->type != GL_NONE; ++entry ) {
                 glDeleteShader( entry->shader );

@@ -4,8 +4,9 @@
 #include <stdio.h>
 #define GL_GLEXT_PROTOTYPES
 #include <GL/glut.h>
-#include "../../tools/LoadShaders.h"
-#include "../../tools/vgl.h"
+#include "LoadShaders.h"
+#include "vgl.h"
+#include "curr_config.h"
 
 #include <iostream>
 using namespace std;
@@ -42,11 +43,9 @@ init(void)
     glBindBuffer(GL_ARRAY_BUFFER, Buffers[ArrayBuffer]);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-#define LOCAL_PATH "/home/qihangkong/work/redbook/ch01/triangles/"
-
     ShaderInfo shaders[] = {
-            {GL_VERTEX_SHADER, LOCAL_PATH "triangle.vert"},
-            {GL_FRAGMENT_SHADER, LOCAL_PATH "triangle.frag"},
+            {GL_VERTEX_SHADER, TOP_PATH "/ch01/triangles/triangle.vert"},
+            {GL_FRAGMENT_SHADER, TOP_PATH "/ch01/triangles/triangle.frag"},
             {GL_NONE, NULL},
     };
 
