@@ -8,12 +8,19 @@
 #define GL_GLEXT_PROTOTYPES
 #include <GL/glut.h>
 
-typedef struct ShaderInfo {
-    GLenum      type;
-    const char  *filename;
-    GLuint      shader;
-}ShaderInfo;
+namespace Tools {
 
-GLuint LoadShaders(ShaderInfo *shaders);
+    typedef struct ShaderInfo {
+        GLenum type;
+        const char *filename;
+        GLuint shader;
+    } ShaderInfo;
+
+    GLuint LoadShaders(ShaderInfo *shaders);
+
+    static const GLchar* ReadShader( const char* filename );
+
+    void GetVersionInfo(void);
+}
 
 #endif //REDBOOK_LOADSHADERS_H

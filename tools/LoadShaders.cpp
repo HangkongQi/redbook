@@ -3,10 +3,8 @@
 
 #include "LoadShaders.h"
 
-static const GLchar*
-ReadShader( const char* filename )
+const GLchar* Tools::ReadShader(const char *filename)
 {
-
     FILE* infile = fopen( filename, "rb" );
 
     if ( !infile ) {
@@ -14,8 +12,8 @@ ReadShader( const char* filename )
         return NULL;
     }
 
-    fseek( infile, 0, SEEK_END );
-    int len = ftell( infile );
+    fseek(infile, 0, SEEK_END);
+    int len = ftell(infile);
     fseek( infile, 0, SEEK_SET );
 
     GLchar* source = new GLchar[len+1];
@@ -29,9 +27,7 @@ ReadShader( const char* filename )
 }
 
 //----------------------------------------------------------------------------
-
-GLuint
-LoadShaders(ShaderInfo* shaders)
+GLuint Tools::LoadShaders(ShaderInfo *shaders)
 {
     if ( shaders == NULL ) { return 0; }
 
@@ -100,6 +96,17 @@ LoadShaders(ShaderInfo* shaders)
     }
 
     return program;
+}
+
+void Tools::GetVersionInfo()
+{
+    char *buf;
+    buf = (char *)glGetString(GL_VENDOR);
+    std::cout << "GPU Vendor: " << buf << std::endl;
+    buf = (char *)glGetString(GL_VERSION);
+    std::cout << "OpenGL Version: " << buf << std::endl;
+    buf = (char *)glGetString(GL_SHADING_LANGUAGE_VERSION);
+    std::cout << "GLSL version: " << buf << std::endl;
 }
 
 

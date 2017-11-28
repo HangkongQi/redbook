@@ -10,6 +10,7 @@
 
 #include <iostream>
 using namespace std;
+using namespace Tools;
 
 enum VAO_IDs {Triangles, NumVAOs};
 enum Buffer_IDs {ArrayBuffer, NumBuffers};
@@ -27,6 +28,8 @@ const GLuint NumVertices = 6;
 void
 init(void)
 {
+    GetVersionInfo();
+
     glGenVertexArrays(NumVAOs, VAOs);
     glBindVertexArray(VAOs[Triangles]);
 
