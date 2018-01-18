@@ -1,0 +1,29 @@
+1. glAreTexturesResident
+	_mesa_AreTextureResident:
+		for (i=0; i<n, i++) {
+			t = _mesa_lookup_texture(texutre[i]);
+		}
+
+
+2. Initialize
+	a> CreateContext
+		glxcmds.c:glXCreateNewContext -->
+		glxcmds.c:CreateContext -->
+		dri3_glx.c:dri3_create_context -->
+		dri3_glx.c:dri3_create_context_attribs -->
+		dri_util.c:driCreateContextAttribs -->
+		dri_context.c:dri_create_context -->
+		st_manager.c:st_api_create_context -->
+		st_context.c:st_create_context -->
+		main/context.c:_mesa_initialize_context -->
+		main/shared.c:_mesa_alloc_shared_state:
+			shared->TexObjects = _mesa_NewHashTable();
+
+	b> glGenTextures
+		texobj.c:_mesa_GenTextures -->
+		texobj.c:create_textures_err -->
+		texobg.c:create_textures -->
+			struct gl_texture_object *texObj = ctx->Driver.NewTextureObject(ctx, name, target);
+		st_cb_texture.c:st_NewTextureObject -->
+		texobj.c:_mesa_initialize_texture_object
+	

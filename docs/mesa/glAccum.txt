@@ -1,0 +1,26 @@
+how to glAccum:
+
+
+1. Initialize
+	glxcurrent.c:MakeContextCurrent -->
+	dri3_glx.c:dri3_bind_context -->
+	dri_util.c:driBindContext -->
+	dri_context:dri_make_current -->
+	st_manager:st_api_make_current -->
+	st_manager:st_framebuffer_reusr_or_create -->
+	st_manager:st_framebuffer_create -->
+	st_manager.c:st_framebuffer_add_renderbuffer -->
+	renderbuffer.c:_mesa_attach_and_own_rb
+	
+	fb->Attachment[XXX],Renderbuffer
+
+	st_framebuffer_validate -->
+	st_renderbuffer_alloc_sw_storage -->
+	strb->data = malloc(size);
+
+2. _mesa_Accum
+	accum.c:_mesa_Accum -->
+	accum.c:accum_or_load -->
+	st_cb_fbo,c:st_MapRebderbuffer -->
+	 	goto software
+

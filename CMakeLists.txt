@@ -9,9 +9,13 @@ configure_file(
         ${TOP_PATH}/tools/curr_config.h
 )
 
+include_directories(/home/qihangkong/usr/include)
+link_directories(/home/qihangkong/usr/lib)
 link_libraries(GL GLU glut)
 
-add_executable(eeee test.cpp)
+add_executable(triangle_test test.cpp radeonsi_test/test1.cpp)
+
+add_executable(rtest1 radeonsi_test/test1.cpp radeonsi_test/testvulkan.cpp)
 
 add_subdirectory(tools)
 add_subdirectory(ch01)
