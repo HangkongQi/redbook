@@ -1,8 +1,0 @@
-1. call glActiveTexture
-	texstate.c:_mesa_ActiveTexture -->
-	texstate.c:active_texture:
-		ctx->Texture.CurrentUnit = texUnit;
-		if (ctx->Transform.MatrixMode == GL_TEXTURE) {
-			ctx->CurrentStack = &ctx->TextureMatrixStack[texUnit];
-		}
-	

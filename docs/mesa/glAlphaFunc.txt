@@ -1,8 +1,0 @@
-1. glAlphaFunc
-	blend:_mesa_AlphaFunc:
-		ctx->NewDriverState |= ctx->DriverFlags.NewAlphaTest;
-		ctx->Color.AlphaFunc = func;
-		ctx->Color.AlphaRefUnclamped = ref;
-		ctx->Color.AlphaRef = CLAMP(ref, 0.0F, 1.0F);
-		
-		ctx->Driver.AlphaFunc is (void (*)(struct gl_context *, GLenum, GLfloat)) 0x0;
