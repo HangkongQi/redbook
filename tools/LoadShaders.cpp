@@ -63,7 +63,7 @@ GLuint Tools::LoadShaders(ShaderInfo *shaders)
 
             GLchar* log = new GLchar[len+1];
             glGetShaderInfoLog( shader, len, &len, log );
-            std::cerr << "Shader compilation failed: " << log << std::endl;
+            printf("Shader (%s) compilation failed !!\n%s\n", entry->filename, log);
             delete [] log;
 
             return 0;
