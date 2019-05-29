@@ -13,7 +13,7 @@ using namespace std;
 using namespace Tools;
 
 enum VAO_IDs {Triangles, NumVAOs};
-enum Buffer_IDs {ArrayBuffer, ColorBuffer, UniformBuffer, NumBuffers};
+enum Buffer_IDs {ArrayBuffer, ColorBuffer, NumBuffers};
 
 enum Attrib_IDs {vPosition = 0, vColor = 1};
 
@@ -130,7 +130,7 @@ int main(int argc, char *argv[])
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGBA);
     glutInitWindowSize(800, 600);
     glutInitWindowPosition(0, 0);
-    glutCreateWindow("redbooks");
+    glutCreateWindow("redbook");
     init();
     glutReshapeFunc(reshape);
     glutDisplayFunc(display);
