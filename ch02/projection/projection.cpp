@@ -93,8 +93,13 @@ init(void)
     glEnableVertexAttribArray(vColor);
 
     /* Modelview Matrix With uniform */
-    glUniformMatrix4fv(0, 1, GL_FALSE, (GLfloat *)modelview_matrix);
-    glUniformMatrix4fv(1, 1, GL_FALSE, (GLfloat *)projection_matrix);
+    GLint mLoc;
+    mLoc = glGetUniformLocation(program, "modelview");
+    glUniformMatrix4fv(mLoc, 1, GL_FALSE, (GLfloat *)modelview_matrix);
+
+    GLint pLoc;
+    pLoc = glGetUniformLocation(program, "projection");
+    glUniformMatrix4fv(pLoc, 1, GL_FALSE, (GLfloat *)projection_matrix);
 }
 
 void reshape(int w, int h)
