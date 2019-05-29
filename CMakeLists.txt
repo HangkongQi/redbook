@@ -9,11 +9,10 @@ configure_file(
         ${TOP_PATH}/tools/curr_config.h
 )
 
-include_directories(/home/qihangkong/usr/include)
-link_directories(/home/qihangkong/usr/lib)
 link_libraries(GL GLU glut)
 
-add_executable(triangle_test test.cpp)
-
 add_subdirectory(tools)
+include_directories(tools)
+link_libraries(gltools)
+
 add_subdirectory(ch01)

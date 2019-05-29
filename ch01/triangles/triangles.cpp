@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
 {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGBA);
-    glutInitWindowSize(480, 320);
+    glutInitWindowSize(800, 600);
     glutInitWindowPosition(0, 0);
     glutCreateWindow("triangles");
     init();
