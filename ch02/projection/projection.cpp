@@ -7,6 +7,7 @@
 #include "LoadShaders.h"
 #include "vgl.h"
 #include "curr_config.h"
+#include "vmath.h"
 
 #include <iostream>
 using namespace std;
@@ -95,11 +96,14 @@ init(void)
     /* Modelview Matrix With uniform */
     GLint mLoc;
     mLoc = glGetUniformLocation(program, "modelview");
-    glUniformMatrix4fv(mLoc, 1, GL_FALSE, (GLfloat *)modelview_matrix);
+    // GLfloat *model = vmath::scale(0.5, 0.5, 1.0);
+    GLfloat *model = vmath::translation(0.3, 0, 0);
+    glUniformMatrix4fv(mLoc, 1, GL_FALSE, (GLfloat *)model);
 
     GLint pLoc;
     pLoc = glGetUniformLocation(program, "projection");
-    glUniformMatrix4fv(pLoc, 1, GL_FALSE, (GLfloat *)projection_matrix);
+    GLfloat * proj = vmath::frustum(-2, 2, -2, 2, 1, 500);
+    glUniformMatrix4fv(pLoc, 1, GL_FALSE, (GLfloat *)proj);
 }
 
 void reshape(int w, int h)
